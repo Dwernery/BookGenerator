@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AddBook from "./components/AddBook/AddBook";
+import BookList from "./components/BookList";
+import { ChakraProvider, Flex } from "@chakra-ui/react";
+import GenerateBook from "./components/GenerateBook.tsx/GenerateBook";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <ChakraProvider>
+        <Flex
+          alignItems="center"
+          mt="5%"
+          justifyContent="space-between"
+          ml="2rem"
+          mr="2rem"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Flex flexDir="column" w="100%">
+            <AddBook />
+            <BookList />
+          </Flex>
+          <GenerateBook />
+        </Flex>
+      </ChakraProvider>
+    </>
   );
-}
-
-export default App;
+};
